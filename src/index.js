@@ -4,14 +4,41 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// 预加载关键资源
+const preloadResources = () => {
+  // 预加载字体
+  const fontUrls = [
+    'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap'
+  ];
+  
+  fontUrls.forEach(url => {
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'style';
+    link.href = url;
+    document.head.appendChild(link);
+  });
+};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// 初始化应用
+const initApp = () => {
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+
+  // 如果你想要测量性能
+  reportWebVitals(console.log);
+};
+
+// 在空闲时间预加载资源
+if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+  window.requestIdleCallback(preloadResources);
+} else {
+  setTimeout(preloadResources, 1);
+}
+
+// 启动应用
+initApp();
