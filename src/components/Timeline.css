@@ -1,0 +1,139 @@
+.timeline-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.timeline-header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.timeline-header h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-count {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #e0e0e0;
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.timeline-marker {
+  flex: 0 0 100px;
+  position: relative;
+}
+
+.marker {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: absolute;
+  left: 43px;
+  top: 8px;
+  border: 2px solid #fff;
+}
+
+.marker.buddhism {
+  background-color: #87CEEB;
+}
+
+.marker.practice {
+  background-color: #98FB98;
+}
+
+.timeline-content {
+  flex: 1;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.article-date {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.article-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0 0 1rem 0;
+}
+
+.article-excerpt {
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.article-links {
+  margin-bottom: 1rem;
+}
+
+.article-link {
+  display: inline-block;
+  color: #87CEEB;
+  text-decoration: none;
+  margin-right: 1rem;
+  font-weight: 500;
+}
+
+.article-link:hover {
+  text-decoration: underline;
+}
+
+.article-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.article-tag {
+  background-color: #f0f0f0;
+  color: #666;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .timeline-container {
+    padding: 1rem;
+  }
+
+  .timeline::before {
+    left: 30px;
+  }
+
+  .timeline-marker {
+    flex: 0 0 60px;
+  }
+
+  .marker {
+    left: 23px;
+  }
+} 
